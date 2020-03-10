@@ -26,7 +26,7 @@ class Bicycle():
                 self.delta -= 0.02
         elif pressed[pygame.K_RIGHT]:
             if self.delta < 0.8:
-                self.delta +=0.02
+                self.delta += 0.02
         
     def Update(self):
         self.vel += self.acc
@@ -38,11 +38,9 @@ class Bicycle():
         self.theta += (self.vel * math.tan(self.delta)) / self.length
         self.vel *= 0.95
     
-    
     def display(self):
         x=int(self.pos[0])
         y=int(self.pos[1])
-        z=self.length
         a=np.full((150, 5), 200)
         b=np.full((25, 15), 150)
         c=np.full((25, 15), 150)
@@ -61,18 +59,19 @@ class Bicycle():
         
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((1920, 1080))
+    screen = pygame.display.set_mode((1280, 720))
     done = False
     vehicle = Bicycle(screen)
     while not done:
-        for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                        done = True
         screen.fill((0,0,0))
         vehicle.getInput()
         vehicle.Update()
         vehicle.display()
         pygame.display.flip()
+        for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                        done = True
+                        pygame.quit()
         
         
 if __name__ == '__main__':
