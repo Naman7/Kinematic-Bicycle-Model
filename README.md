@@ -1,4 +1,4 @@
-# Kinematic-Bicycle-Model
+# Kinematic Bicycle Model
 
 ### Steps to get things done
 1) Install dependencies
